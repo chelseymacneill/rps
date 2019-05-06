@@ -10,4 +10,8 @@
 
 #game-outcome {
     border-style: double;
+    position: absolute;
+    left: 0; 
+    width: 100%; 
+    bottom: 0;
 }

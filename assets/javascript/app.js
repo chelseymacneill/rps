@@ -22,14 +22,14 @@ $(document).ready(function() {
     var userOneChoiceText = document.getElementById("user-one-choice-text");
     var userOneWinsText = document.getElementById("user-one-wins-text");
     var userOneLossesText = document.getElementById("user-one-losses-text");
-    var tiesText = document.getElementById("user-one-ties-text");
+    var userOneTiesText = document.getElementById("user-one-ties-text");
     
     
     // User 2 Choice
     var userTwoChoiceText = document.getElementById("user-two-choice-text");
     var userTwoWinsText = document.getElementById("user-two-wins-text");
     var userTwoLossesText = document.getElementById("user-two-losses-text");
-    var tiesText = document.getElementById("user-two-ties-text"); // same as user 1 because it takes two to tie
+    var userTwoTiesText = document.getElementById("user-two-ties-text"); // same as user 1 because it takes two to tie
     
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
@@ -68,12 +68,12 @@ $(document).ready(function() {
             userOneChoiceText.textContent = "User One chose: " + userOneGuess;
             userOneWinsText.textContent = "wins: " + userOneWins;
             userOneLossesText.textContent = "losses: " + userOneLosses;
-            tiesText.textContent = "ties: " + ties;
+            userOneTiesText.textContent = "ties: " + ties;
             // User 2
             userTwoChoiceText.textContent = "User Two chose: " + computerGuess;
             userTwoWinsText.textContent = "wins: " + userTwoWins;
             userTwoLossesText.textContent = "losses: " + userTwoLosses;
-            tiesText.textContent = "ties: " + ties;
+            userTwoTiesText.textContent = "ties: " + ties;
         }
     };
     
