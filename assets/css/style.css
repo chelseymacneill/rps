@@ -1,0 +1,13 @@
+#user-one-stats {
+    float : left;
+    border-style: double;
+}
+
+#user-two-stats {
+    float : left;
+    border-style: double;
+}
+
+#game-outcome {
+    border-style: double;
+}
