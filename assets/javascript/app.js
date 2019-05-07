@@ -14,7 +14,9 @@ $(document).ready(function() {
     var userTwoLosses = 0;
     // Not associated with user 1 or 2 but both users
     var ties = 0;
-    
+    // 
+
+
     // Create variables that hold references to the places in the HTML where we want to display things.
     var instructionsText = document.getElementById("instructions");
 
@@ -23,7 +25,6 @@ $(document).ready(function() {
     var userOneWinsText = document.getElementById("user-one-wins-text");
     var userOneLossesText = document.getElementById("user-one-losses-text");
     var userOneTiesText = document.getElementById("user-one-ties-text");
-    
     
     // User 2 Choice
     var userTwoChoiceText = document.getElementById("user-two-choice-text");
@@ -41,18 +42,18 @@ $(document).ready(function() {
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         
         // Only run the following code block if the user presses "r" or "p" or "s".
-        if ((userOneGuess === "s") || (userGuess === "r") || (userGuess === "p")) {
+        if ((userOneGuess === "r") || (userOneGuess === "p") || (userOneGuess === "s")) {
             
             // If we choose rock and the computer guesses scissors, increment our wins variable.
-            if ((userOneGuess === "s") && (computerGuess === "p") || (userOneGuess === "r") && (computerGuess === "s") || (userOneGuess === "p") && (computerGuess === "r")) {
+            if ((userOneGuess === "r") && (computerGuess === "s") || (userOneGuess === "s") && (computerGuess === "p") || (userOneGuess === "p") && (computerGuess === "r")) {
                 userOneWins++;
-                userTwoLosses++;
+                userTwoLosses++
             }
             
             // If we choose rock and the computer guesses paper, increment our losses variable.
             if ((userOneGuess === "r") && (computerGuess === "p") || (userOneGuess === "s") && (computerGuess === "r") || (userOneGuess === "p") && (computerGuess === "s")) {
-                userOneLosses ++
-                userTwoWins++;
+                userOneLosses++;
+                userTwoWins++
             }
             
             // If we choose the same thing as the computer, increment our ties variable.
@@ -75,6 +76,6 @@ $(document).ready(function() {
             userTwoLossesText.textContent = "losses: " + userTwoLosses;
             userTwoTiesText.textContent = "ties: " + ties;
         }
-    };
+  };
     
 }); // closed the document on ready
