@@ -31,14 +31,14 @@ $(document).ready(function() {
     var userTwoLossesText = document.getElementById("user-two-losses-text");
     var userTwoTiesText = document.getElementById("user-two-ties-text"); // same as user 1 because it takes two to tie
     
-    var subButton = document.getElementById('user-one-sub-button');
-    
+    var subButton1 = document.getElementById('user-one-sub-button');
+    var subButton2 = document.getElementById('user-two-sub-button');
     
     // FUNCTIONS 
     //==================================================================================
     
     // Capture and store User 1 name 
-    function getUserName() {
+    function getUser1Name() {
         var userOneNameField = document.getElementById('user-one-name-field').value;
         var result = document.getElementById('user-one-name-display');
         
@@ -51,13 +51,21 @@ $(document).ready(function() {
         }
     }
     
-    // Submit button event listener for User 1 
-    subButton.addEventListener('click', getUserName, false); 
-
-
-
-
+    // Capture and store User 2 name 
+    function getUser2Name() {
+        var userTwoNameField = document.getElementById('user-two-name-field').value;
+        var result = document.getElementById('user-two-name-display');
+        
+        if (userTwoNameField.length < 3) {
+            result.textContent = 'Username must contain at least 3 characters';
+            //alert('Username must contain at least 3 characters');
+        } else {
+            result.textContent = 'Your username is: ' + userTwoNameField;
+            //alert(nameField);
+        }
+    }
     // This should only run after users have put in thier names otherwise the game is triggered 
+    // Could add a ready to play start button that triggers the game 
     
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
@@ -133,5 +141,16 @@ $(document).ready(function() {
         // Console.log the "snapshot" value (a point-in-time representation of the database)
         console.log(snapshot.val());
     });
+    
+    
+    
+    // FUNCTION CALLS 
+    //===============================================================================
+    
+    // Submit button event listener for User 1 
+    subButton1.addEventListener('click', getUser1Name, false); 
+    // Submit button event listener for User 1 
+    subButton2.addEventListener('click', getUser2Name, false); 
+    
     
 }); // closed the document on ready
