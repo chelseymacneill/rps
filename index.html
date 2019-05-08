@@ -40,26 +40,35 @@
         <h3 id='user-one-wins-text'></h3>
         <h3 id='user-one-losses-text'></h3>
         <h3 id='user-one-ties-text'></h3>
-        
-        <!--  <form>
-            <input id="user-one-input" type="text" value="">
+        <!-- Capture and store User 1's name -->
+        <form id='user-one-name-form'>
+            <div class='form-name'>
+                <label id='user-one-name-label' for='user-one-name-field'>Create a username:</label>
+                <input id='user-one-name-field' type='text' maxlength='25'></input>
+            </div>
+            <div class='form-sub'>
+                <button id='user-one-sub-button' type='button'>Print your name!</button>
+            </div>
         </form>
-    </div> -->
-    
-    <!-- Give user 2 an option to choose r,p,s-->
-    <div id="user-two-stats"> 
-        <h4> Player 2 </h4>
-        <h3 id='user-two-choice-text'></h3>
-        <h3 id='user-two-wins-text'></h3>
-        <h3 id='user-two-losses-text'></h3>
-        <h3 id='user-two-ties-text'></h3>
-    </div>
-    <!-- Display both users answers at the same time and announce the winner -->
-    <div id="game-outcome"> 
-        <h4> You're the winner </h4>
-        <h3 id='winner-display'> </h3>
         
-    </div>
-    
-</body>
-</html>
+        <div>
+            <p id='user-one-name-display'></p></div>
+        </div>
+        
+        <!-- Give user 2 an option to choose r,p,s-->
+        <div id="user-two-stats"> 
+            <h4> Player 2 </h4>
+            <h3 id='user-two-choice-text'></h3>
+            <h3 id='user-two-wins-text'></h3>
+            <h3 id='user-two-losses-text'></h3>
+            <h3 id='user-two-ties-text'></h3>
+        </div>
+        <!-- Display both users answers at the same time and announce the winner -->
+        <div id="game-outcome"> 
+            <h4> You're the winner </h4>
+            <h3 id='winner-display'> </h3>
+            
+        </div>
+        
+    </body>
+    </html>

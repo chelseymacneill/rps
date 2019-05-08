@@ -31,11 +31,33 @@ $(document).ready(function() {
     var userTwoLossesText = document.getElementById("user-two-losses-text");
     var userTwoTiesText = document.getElementById("user-two-ties-text"); // same as user 1 because it takes two to tie
     
-    
+    var subButton = document.getElementById('user-one-sub-button');
     
     
     // FUNCTIONS 
     //==================================================================================
+    
+    // Capture and store User 1 name 
+    function getUserName() {
+        var userOneNameField = document.getElementById('user-one-name-field').value;
+        var result = document.getElementById('user-one-name-display');
+        
+        if (userOneNameField.length < 3) {
+            result.textContent = 'Username must contain at least 3 characters';
+            //alert('Username must contain at least 3 characters');
+        } else {
+            result.textContent = 'Your username is: ' + userOneNameField;
+            //alert(nameField);
+        }
+    }
+    
+    // Submit button event listener for User 1 
+    subButton.addEventListener('click', getUserName, false); 
+
+
+
+
+    // This should only run after users have put in thier names otherwise the game is triggered 
     
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
