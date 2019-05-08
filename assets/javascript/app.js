@@ -1,5 +1,5 @@
 
-//$(document).ready(function() {
+$(document).ready(function() {
     
     // Variables 
     //================================================================================
@@ -15,7 +15,6 @@
     // Not associated with user 1 or 2 but both users
     var ties = 0;
     // 
-    
     
     // Create variables that hold references to the places in the HTML where we want to display things.
     var instructionsText = document.getElementById("instructions");
@@ -87,49 +86,30 @@
     };
     
     // Firebase configuration
-    // Your web app's Firebase configuration
-
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
     
-    //
+    // Your web app's Firebase configuration
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBzJXd5aa8ZWQ_M26EoFH0CGox-YlWSUVA",
+        authDomain: "my-first-project-acbf6.firebaseapp.com",
+        databaseURL: "https://my-first-project-acbf6.firebaseio.com",
+        projectId: "my-first-project-acbf6",
+        storageBucket: "my-first-project-acbf6.appspot.com",
+        messagingSenderId: "967359446726"
+    };
+    
+    // Initialize Firebase
+    firebase.initializeApp(config);
+    
+    // Create a variable to reference the database
     var database = firebase.database();
     
-    // console logging a value in the database 
-    
+    // Log the value from the database
     database.ref().on("value", function(snapshot) {
+        // We are now inside our .on function...
         
-        // Then we console.log the value of snapshot
+        // Console.log the "snapshot" value (a point-in-time representation of the database)
         console.log(snapshot.val());
-        
-        // Update the clickCounter variable with data from the database.
-        userOneWins= snapshot.val().userOneWins
-        
-        // Then we change the html associated with the number.
-       // $("#click-value").text(snapshot.val().clickCount);
-        
-        // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
-        // Again we could have named errorObject anything we wanted.
-    }, function(errorObject) {
-        
-        // In case of error this will print the error
-        console.log("The read failed: " + errorObject.code);
     });
     
-    
-    
-    // Capturing User One Guess and storing it in firebase
-    /*$("#user-one-input").on("keyup", function() {
-        
-        // store user one input as User One Guess
-        
-        
-        //  Store Click Data to Firebase in a JSON property called clickCount
-        // Note how we are using the Firebase .set() method
-        database.ref().set({
-            userOneGuess: userOneGuess
-        });*/
-   // });
-    
-//}); // closed the document on ready
+}); // closed the document on ready
