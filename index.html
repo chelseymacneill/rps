@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Link to the JQuery API -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase-app.js"></script>
+    
     <!-- Link to Bootstrap API -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <!-- Link to Google Fonts API -->
@@ -29,7 +30,7 @@
     <div id="instructions">
         <h2> Instructions : This seems unesssary but pick r, p, or s. The computer or another user does the same. Then you see who wins. really you're still reading this. Pick r, p, or s to start. I don't know how else to explain this to you. </h2>
     </div>
-
+    
     <!-- Give user 1 an option to choose r,p,s -->
     <div id="user-one-stats"> 
         <h4> Player 1 </h4>
@@ -37,16 +38,20 @@
         <h3 id='user-one-wins-text'></h3>
         <h3 id='user-one-losses-text'></h3>
         <h3 id='user-one-ties-text'></h3>
-    </div>
+        
+       <!--  <form>
+            <input id="user-one-input" type="text" value="">
+        </form>
+    </div> -->
     
     <!-- Give user 2 an option to choose r,p,s-->
     <div id="user-two-stats"> 
-            <h4> Player 2 </h4>
-            <h3 id='user-two-choice-text'></h3>
-            <h3 id='user-two-wins-text'></h3>
-            <h3 id='user-two-losses-text'></h3>
-            <h3 id='user-two-ties-text'></h3>
-        </div>
+        <h4> Player 2 </h4>
+        <h3 id='user-two-choice-text'></h3>
+        <h3 id='user-two-wins-text'></h3>
+        <h3 id='user-two-losses-text'></h3>
+        <h3 id='user-two-ties-text'></h3>
+    </div>
     <!-- Display both users answers at the same time and announce the winner -->
     <div id="game-outcome"> 
         <h4> You're the winner </h4>
@@ -54,6 +59,7 @@
         
     </div>
     
-    
+    <!-- Linking to JS -->
+    <script src="assets/javascript/app.js" type="text/javascript"></script>
 </body>
 </html>
