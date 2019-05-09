@@ -69,6 +69,12 @@ $(document).ready(function() {
     // Start with two player mode button 
     $("#2-player-mode-start-button").on("click", function() {
         
+            document.getElementById('user-one-stats').style.display = "block";
+            document.getElementById('user-two-stats').style.display = "block";
+            document.getElementById('computer-mode-start-button').style.display = "none";
+        
+
+
         // Use a time count down from 3..2..1.. SHOOT! 
         
         // Give users 2 seconds after shoot to guess otherwise they lose
@@ -79,14 +85,43 @@ $(document).ready(function() {
     
         // Capture user 2 guess 
         var userTwoGuess = event.key;
-        
-        
-        
-        
-        
-        
+
+        // Only run the following code block if the user presses "r" or "p" or "s".
+            if ((userOneGuess === "r") || (userOneGuess === "p") || (userOneGuess === "s")) {
+                
+                // If we choose rock and the computer guesses scissors, increment our wins variable.
+                if ((userOneGuess === "r") && (userTwoGuess === "s") || (userOneGuess === "s") && (userTwoGuess === "p") || (userOneGuess === "p") && (userTwoGuess === "r")) {
+                    userOneWins++;
+                    userTwoLosses++
+                }
+                
+                // If we choose rock and the computer guesses paper, increment our losses variable.
+                if ((userOneGuess === "r") && (userTwoGuess === "p") || (userOneGuess === "s") && (userTwoGuess === "r") || (userOneGuess === "p") && (userTwoGuess === "s")) {
+                    userOneLosses++;
+                    userTwoWins++
+                }
+                
+                // If we choose the same thing as the computer, increment our ties variable.
+                if (userOneGuess === userTwoGuess) {
+                    ties++;
+                }
+                
+                // Hide the directions
+                instructionsText.textContent = "";
+                
+                // Update the display the user and computer guesses, and wins/losses/ties.
+                // User 1 
+                userOneChoiceText.textContent = "User One chose: " + userOneGuess;
+                userOneWinsText.textContent = "wins: " + userOneWins;
+                userOneLossesText.textContent = "losses: " + userOneLosses;
+                userOneTiesText.textContent = "ties: " + ties;
+                // User 2
+                userTwoChoiceText.textContent = "User Two chose: " + computerGuess;
+                userTwoWinsText.textContent = "wins: " + userTwoWins;
+                userTwoLossesText.textContent = "losses: " + userTwoLosses;
+                userTwoTiesText.textContent = "ties: " + ties;
+            }
     });
-    // This function is run whenever the user presses a key.
     
     // Start with challenge the computer mode button 
     $("#computer-mode-start-button").on("click", function() {
