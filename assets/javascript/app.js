@@ -65,55 +65,79 @@ $(document).ready(function() {
         }
     }
     // This should only run after users have put in thier names otherwise the game is triggered 
-    // Could add a ready to play start button that triggers the game 
-    
-    // This function is run whenever the user presses a key.
-    document.onkeyup = function(event) {
+    // 
+    // Start with two player mode button 
+    $("#2-player-mode-start-button").on("click", function() {
         
-        // Determines which key was pressed.
+        // Use a time count down from 3..2..1.. SHOOT! 
+        
+        // Give users 2 seconds after shoot to guess otherwise they lose
+        
+        // Capture user 1 guess 
         var userOneGuess = event.key;
         
-        // Randomly chooses a choice from the options array. This is the Computer's guess.
-        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    
+        // Capture user 2 guess 
+        var userTwoGuess = event.key;
         
         
         
-        // Only run the following code block if the user presses "r" or "p" or "s".
-        if ((userOneGuess === "r") || (userOneGuess === "p") || (userOneGuess === "s")) {
+        
+        
+        
+    });
+    // This function is run whenever the user presses a key.
+    
+    // Start with challenge the computer mode button 
+    $("#computer-mode-start-button").on("click", function() {
+        
+        document.onkeyup = function(event) {
             
-            // If we choose rock and the computer guesses scissors, increment our wins variable.
-            if ((userOneGuess === "r") && (computerGuess === "s") || (userOneGuess === "s") && (computerGuess === "p") || (userOneGuess === "p") && (computerGuess === "r")) {
-                userOneWins++;
-                userTwoLosses++
+            // Determines which key was pressed.
+            var userOneGuess = event.key;
+            
+            // Randomly chooses a choice from the options array. This is the Computer's guess.
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            
+            
+            
+            // Only run the following code block if the user presses "r" or "p" or "s".
+            if ((userOneGuess === "r") || (userOneGuess === "p") || (userOneGuess === "s")) {
+                
+                // If we choose rock and the computer guesses scissors, increment our wins variable.
+                if ((userOneGuess === "r") && (computerGuess === "s") || (userOneGuess === "s") && (computerGuess === "p") || (userOneGuess === "p") && (computerGuess === "r")) {
+                    userOneWins++;
+                    userTwoLosses++
+                }
+                
+                // If we choose rock and the computer guesses paper, increment our losses variable.
+                if ((userOneGuess === "r") && (computerGuess === "p") || (userOneGuess === "s") && (computerGuess === "r") || (userOneGuess === "p") && (computerGuess === "s")) {
+                    userOneLosses++;
+                    userTwoWins++
+                }
+                
+                // If we choose the same thing as the computer, increment our ties variable.
+                if (userOneGuess === computerGuess) {
+                    ties++;
+                }
+                
+                // Hide the directions
+                instructionsText.textContent = "";
+                
+                // Update the display the user and computer guesses, and wins/losses/ties.
+                // User 1 
+                userOneChoiceText.textContent = "User One chose: " + userOneGuess;
+                userOneWinsText.textContent = "wins: " + userOneWins;
+                userOneLossesText.textContent = "losses: " + userOneLosses;
+                userOneTiesText.textContent = "ties: " + ties;
+                // User 2
+                userTwoChoiceText.textContent = "User Two chose: " + computerGuess;
+                userTwoWinsText.textContent = "wins: " + userTwoWins;
+                userTwoLossesText.textContent = "losses: " + userTwoLosses;
+                userTwoTiesText.textContent = "ties: " + ties;
             }
-            
-            // If we choose rock and the computer guesses paper, increment our losses variable.
-            if ((userOneGuess === "r") && (computerGuess === "p") || (userOneGuess === "s") && (computerGuess === "r") || (userOneGuess === "p") && (computerGuess === "s")) {
-                userOneLosses++;
-                userTwoWins++
-            }
-            
-            // If we choose the same thing as the computer, increment our ties variable.
-            if (userOneGuess === computerGuess) {
-                ties++;
-            }
-            
-            // Hide the directions
-            instructionsText.textContent = "";
-            
-            // Update the display the user and computer guesses, and wins/losses/ties.
-            // User 1 
-            userOneChoiceText.textContent = "User One chose: " + userOneGuess;
-            userOneWinsText.textContent = "wins: " + userOneWins;
-            userOneLossesText.textContent = "losses: " + userOneLosses;
-            userOneTiesText.textContent = "ties: " + ties;
-            // User 2
-            userTwoChoiceText.textContent = "User Two chose: " + computerGuess;
-            userTwoWinsText.textContent = "wins: " + userTwoWins;
-            userTwoLossesText.textContent = "losses: " + userTwoLosses;
-            userTwoTiesText.textContent = "ties: " + ties;
-        }
-    };
+        };
+    });
     
     // Firebase configuration
     
